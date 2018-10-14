@@ -1,5 +1,7 @@
 const canvas = document.getElementById("board")
 const ctx = canvas.getContext("2d")
+const w = canvas.width
+const h = canvas.height
 const n = 10 //block size
 const l = 5 // initial snake length
 ctx.fillStyle = "#FF0000"
@@ -31,6 +33,18 @@ const update = () => {
   body.shift()
   x = body[body.length-1][0]+dirs[index][0]
   y = body[body.length-1][1]+dirs[index][1]
+  if (x<0) {
+    x = w-n
+  }
+  if (x>=w) {
+    x = w-x
+  }
+  if (y<0) {
+    y = h-n
+  }
+  if (y>=h) {
+    y = h-y
+  }
   ctx.fillStyle = "#FF0000"
   ctx.fillRect(x,y,n,n)
   body.push([x,y])
