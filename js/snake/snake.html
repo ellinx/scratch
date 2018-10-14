@@ -7,43 +7,5 @@
   <body>
     <canvas id="board" width="500" height="300" style="border:1px solid #000000;"></canvas>
   </body>
-  <script>
-    function updateBoard() {
-      var x = body[0][0];
-      var y = body[0][1];
-      ctx.fillStyle = "#FFFFFF";
-      ctx.fillRect(x,y,n,n);
-      body.shift();
-      x = body[body.length-1][0]+dirs[index][0];
-      y = body[body.length-1][1]+dirs[index][1];
-      ctx.fillStyle = "#FF0000";
-      ctx.fillRect(x,y,n,n);
-      body.push([x,y]);
-    }
-
-    var canvas = document.getElementById("board");
-    var ctx = canvas.getContext("2d");
-    var n = 10; //block size
-    var l = 5; // initial snake length
-    ctx.fillStyle = "#FF0000";
-    ctx.fillRect(0,0,l*n,n);
-    var dirs = [[0,-n],[0,n],[-n,0],[n,0]];
-    var index = 3;
-    var body = [];
-    for (var i=0;i<l;i++) {
-      body.push([i*n,0]);
-    }
-    document.onkeyup = function(e) {
-      if (e.keyCode==38) {
-        index = 0;
-      } else if (e.keyCode==40) {
-        index = 1;
-      } else if (e.keyCode==37) {
-        index = 2;
-      } else if (e.keyCode==39) {
-        index = 3;
-      }
-    }
-    setInterval(updateBoard, 100);
-  </script>
+  <script src="snake-compiled.js"></script>
 </html>
