@@ -1,15 +1,15 @@
-const canvas = document.getElementById("board")
-const ctx = canvas.getContext("2d")
-const w = canvas.width
-const h = canvas.height
-const n = 10 //block size
-const l = 5 // initial snake length
+var canvas = document.getElementById("board")
+var ctx = canvas.getContext("2d")
+var w = canvas.width
+var h = canvas.height
+var n = 10 //block size
+var l = 5 // initial snake length
 ctx.fillStyle = "#FF0000"
 ctx.fillRect(0,0,l*n,n)
-let dirs = [[0,-n],[0,n],[-n,0],[n,0]]
-let index = 3
-let body = []
-for (let i=0;i<l;i++) {
+var dirs = [[0,-n],[0,n],[-n,0],[n,0]]
+var index = 3
+var body = []
+for (var i=0;i<l;i++) {
   body.push([i*n,0])
 }
 document.onkeyup = (e) => {
@@ -24,10 +24,10 @@ document.onkeyup = (e) => {
   }
   //console.log("keycode="+e.keyCode)
 }
-const update = () => {
+function update() {
   //console.log("update")
-  let x = body[0][0]
-  let y = body[0][1]
+  var x = body[0][0]
+  var y = body[0][1]
   ctx.fillStyle = "#FFFFFF"
   ctx.fillRect(x,y,n,n)
   body.shift()
